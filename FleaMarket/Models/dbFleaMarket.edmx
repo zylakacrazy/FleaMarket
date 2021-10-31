@@ -1,0 +1,1195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SGDFleaMarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Account">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+          <Property Name="password_v2" Type="varchar(max)" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="facebook" Type="varchar(max)" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="cmnd" Type="varchar" MaxLength="50" />
+          <Property Name="brithday" Type="date" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="images" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Channel">
+          <Key>
+            <PropertyRef Name="id_channel" />
+          </Key>
+          <Property Name="id_channel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sender" Type="int" />
+          <Property Name="receiver" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Coin">
+          <Key>
+            <PropertyRef Name="id_coin" />
+          </Key>
+          <Property Name="id_coin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="coin_total" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="coin_date" Type="datetime" />
+          <Property Name="coin_details" Type="nvarchar(max)" />
+          <Property Name="id_account" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Color">
+          <Key>
+            <PropertyRef Name="id_color" />
+          </Key>
+          <Property Name="id_color" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="color_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="color_status" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_CPU">
+          <Key>
+            <PropertyRef Name="id_cpu" />
+          </Key>
+          <Property Name="id_cpu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cpu_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="cpu_manuf" Type="nvarchar" MaxLength="50" />
+          <Property Name="cpu_namemanuf" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_DateOfHire">
+          <Key>
+            <PropertyRef Name="id_dateofhire" />
+          </Key>
+          <Property Name="id_dateofhire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doh_startday" Type="datetime" />
+          <Property Name="doh_expirationdate" Type="datetime" />
+          <Property Name="doh_note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Device">
+          <Key>
+            <PropertyRef Name="id_device" />
+          </Key>
+          <Property Name="id_device" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="device_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Images">
+          <Key>
+            <PropertyRef Name="id_images" />
+          </Key>
+          <Property Name="id_images" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="images_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_product" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Manufacturer">
+          <Key>
+            <PropertyRef Name="id_manufacturer" />
+          </Key>
+          <Property Name="id_manufacturer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manufacturer_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="manufacturer_status" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Messages">
+          <Key>
+            <PropertyRef Name="id_messages" />
+          </Key>
+          <Property Name="id_messages" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_channel" Type="int" />
+          <Property Name="messages" Type="nvarchar(max)" />
+          <Property Name="messages_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_manufacturer" Type="int" />
+          <Property Name="id_color" Type="int" />
+          <Property Name="product_capacity" Type="float" />
+          <Property Name="product_status" Type="int" />
+          <Property Name="product_price" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="product_title" Type="nvarchar(max)" />
+          <Property Name="product_details" Type="nvarchar(max)" />
+          <Property Name="id_cpu" Type="int" />
+          <Property Name="product_gpu" Type="varchar" MaxLength="50" />
+          <Property Name="product_ram" Type="int" />
+          <Property Name="id_screensize" Type="int" />
+          <Property Name="product_version" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_disk" Type="varchar" MaxLength="10" />
+          <Property Name="graphics_screen" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_insurance" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_device" Type="int" />
+          <Property Name="id_account" Type="int" />
+          <Property Name="id_shop" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_ProductMore">
+          <Key>
+            <PropertyRef Name="id_productmore" />
+          </Key>
+          <Property Name="id_productmore" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_device" Type="int" />
+          <Property Name="productmore_status" Type="int" />
+          <Property Name="productmore_insurance" Type="nvarchar" MaxLength="50" />
+          <Property Name="productmore_price" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="productmore_title" Type="nvarchar(max)" />
+          <Property Name="productmore_details" Type="nvarchar(max)" />
+          <Property Name="id_account" Type="int" />
+          <Property Name="id_shop" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Screensize">
+          <Key>
+            <PropertyRef Name="id_screensize" />
+          </Key>
+          <Property Name="id_screensize" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="screensize_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="screensize_manuf" Type="nvarchar" MaxLength="50" />
+          <Property Name="screensize_namemanuf" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Shop">
+          <Key>
+            <PropertyRef Name="id_shop" />
+          </Key>
+          <Property Name="id_shop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shop_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="shop_address" Type="nvarchar(max)" />
+          <Property Name="shop_introduce" Type="nvarchar(max)" />
+          <Property Name="shop_phone" Type="nchar" MaxLength="10" />
+          <Property Name="shop_avatar" Type="varchar(max)" />
+          <Property Name="shop_background" Type="varchar(max)" />
+          <Property Name="id_account" Type="int" />
+          <Property Name="id_dateofhire" Type="int" />
+        </EntityType>
+        <Association Name="FK_tbl_Channel_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Channel" Type="Self.tbl_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Channel">
+              <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Channel_tbl_Account1">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Channel" Type="Self.tbl_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Channel">
+              <PropertyRef Name="receiver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Coin_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Coin" Type="Self.tbl_Coin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Coin">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Images_tbl_Product">
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="0..1" />
+          <End Role="tbl_Images" Type="Self.tbl_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="tbl_Images">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Images_tbl_ProductMore">
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="0..1" />
+          <End Role="tbl_Images" Type="Self.tbl_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProductMore">
+              <PropertyRef Name="id_productmore" />
+            </Principal>
+            <Dependent Role="tbl_Images">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Messages_tbl_Channel">
+          <End Role="tbl_Channel" Type="Self.tbl_Channel" Multiplicity="0..1" />
+          <End Role="tbl_Messages" Type="Self.tbl_Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Channel">
+              <PropertyRef Name="id_channel" />
+            </Principal>
+            <Dependent Role="tbl_Messages">
+              <PropertyRef Name="id_channel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Color">
+          <End Role="tbl_Color" Type="Self.tbl_Color" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Color">
+              <PropertyRef Name="id_color" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_CPU">
+          <End Role="tbl_CPU" Type="Self.tbl_CPU" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CPU">
+              <PropertyRef Name="id_cpu" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_cpu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Device">
+          <End Role="tbl_Device" Type="Self.tbl_Device" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Device">
+              <PropertyRef Name="id_device" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_device" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Manufacturer">
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Manufacturer">
+              <PropertyRef Name="id_manufacturer" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_manufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Screensize">
+          <End Role="tbl_Screensize" Type="Self.tbl_Screensize" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Screensize">
+              <PropertyRef Name="id_screensize" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_screensize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Shop">
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Shop">
+              <PropertyRef Name="id_shop" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_shop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProductMore_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_ProductMore">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProductMore_tbl_Device">
+          <End Role="tbl_Device" Type="Self.tbl_Device" Multiplicity="0..1" />
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Device">
+              <PropertyRef Name="id_device" />
+            </Principal>
+            <Dependent Role="tbl_ProductMore">
+              <PropertyRef Name="id_device" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProductMore_tbl_Shop">
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="0..1" />
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Shop">
+              <PropertyRef Name="id_shop" />
+            </Principal>
+            <Dependent Role="tbl_ProductMore">
+              <PropertyRef Name="id_shop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Shop_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Shop">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Shop_tbl_DateOfHire">
+          <End Role="tbl_DateOfHire" Type="Self.tbl_DateOfHire" Multiplicity="0..1" />
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_DateOfHire">
+              <PropertyRef Name="id_dateofhire" />
+            </Principal>
+            <Dependent Role="tbl_Shop">
+              <PropertyRef Name="id_dateofhire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SGDFleaMarketModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Account" EntityType="Self.tbl_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Channel" EntityType="Self.tbl_Channel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Coin" EntityType="Self.tbl_Coin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Color" EntityType="Self.tbl_Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CPU" EntityType="Self.tbl_CPU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DateOfHire" EntityType="Self.tbl_DateOfHire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Device" EntityType="Self.tbl_Device" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Images" EntityType="Self.tbl_Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Manufacturer" EntityType="Self.tbl_Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Messages" EntityType="Self.tbl_Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ProductMore" EntityType="Self.tbl_ProductMore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Screensize" EntityType="Self.tbl_Screensize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Shop" EntityType="Self.tbl_Shop" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_Channel_tbl_Account" Association="Self.FK_tbl_Channel_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Channel" EntitySet="tbl_Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Channel_tbl_Account1" Association="Self.FK_tbl_Channel_tbl_Account1">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Channel" EntitySet="tbl_Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Coin_tbl_Account" Association="Self.FK_tbl_Coin_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Coin" EntitySet="tbl_Coin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Images_tbl_Product" Association="Self.FK_tbl_Images_tbl_Product">
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+            <End Role="tbl_Images" EntitySet="tbl_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Images_tbl_ProductMore" Association="Self.FK_tbl_Images_tbl_ProductMore">
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+            <End Role="tbl_Images" EntitySet="tbl_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Messages_tbl_Channel" Association="Self.FK_tbl_Messages_tbl_Channel">
+            <End Role="tbl_Channel" EntitySet="tbl_Channel" />
+            <End Role="tbl_Messages" EntitySet="tbl_Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Account" Association="Self.FK_tbl_Product_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Color" Association="Self.FK_tbl_Product_tbl_Color">
+            <End Role="tbl_Color" EntitySet="tbl_Color" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_CPU" Association="Self.FK_tbl_Product_tbl_CPU">
+            <End Role="tbl_CPU" EntitySet="tbl_CPU" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Device" Association="Self.FK_tbl_Product_tbl_Device">
+            <End Role="tbl_Device" EntitySet="tbl_Device" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Manufacturer" Association="Self.FK_tbl_Product_tbl_Manufacturer">
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Screensize" Association="Self.FK_tbl_Product_tbl_Screensize">
+            <End Role="tbl_Screensize" EntitySet="tbl_Screensize" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Shop" Association="Self.FK_tbl_Product_tbl_Shop">
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProductMore_tbl_Account" Association="Self.FK_tbl_ProductMore_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProductMore_tbl_Device" Association="Self.FK_tbl_ProductMore_tbl_Device">
+            <End Role="tbl_Device" EntitySet="tbl_Device" />
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProductMore_tbl_Shop" Association="Self.FK_tbl_ProductMore_tbl_Shop">
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Shop_tbl_Account" Association="Self.FK_tbl_Shop_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Shop_tbl_DateOfHire" Association="Self.FK_tbl_Shop_tbl_DateOfHire">
+            <End Role="tbl_DateOfHire" EntitySet="tbl_DateOfHire" />
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SGDFleaMarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Account">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password_v2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cmnd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brithday" Type="DateTime" Precision="0" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="images" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Channel" Relationship="Self.FK_tbl_Channel_tbl_Account" FromRole="tbl_Account" ToRole="tbl_Channel" />
+          <NavigationProperty Name="tbl_Channel1" Relationship="Self.FK_tbl_Channel_tbl_Account1" FromRole="tbl_Account" ToRole="tbl_Channel" />
+          <NavigationProperty Name="tbl_Coin" Relationship="Self.FK_tbl_Coin_tbl_Account" FromRole="tbl_Account" ToRole="tbl_Coin" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Account" FromRole="tbl_Account" ToRole="tbl_Product" />
+          <NavigationProperty Name="tbl_ProductMore" Relationship="Self.FK_tbl_ProductMore_tbl_Account" FromRole="tbl_Account" ToRole="tbl_ProductMore" />
+          <NavigationProperty Name="tbl_Shop" Relationship="Self.FK_tbl_Shop_tbl_Account" FromRole="tbl_Account" ToRole="tbl_Shop" />
+        </EntityType>
+        <EntityType Name="tbl_Channel">
+          <Key>
+            <PropertyRef Name="id_channel" />
+          </Key>
+          <Property Name="id_channel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sender" Type="Int32" />
+          <Property Name="receiver" Type="Int32" />
+          <NavigationProperty Name="tbl_Account" Relationship="Self.FK_tbl_Channel_tbl_Account" FromRole="tbl_Channel" ToRole="tbl_Account" />
+          <NavigationProperty Name="tbl_Account1" Relationship="Self.FK_tbl_Channel_tbl_Account1" FromRole="tbl_Channel" ToRole="tbl_Account" />
+          <NavigationProperty Name="tbl_Messages" Relationship="Self.FK_tbl_Messages_tbl_Channel" FromRole="tbl_Channel" ToRole="tbl_Messages" />
+        </EntityType>
+        <EntityType Name="tbl_Coin">
+          <Key>
+            <PropertyRef Name="id_coin" />
+          </Key>
+          <Property Name="id_coin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="coin_total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="coin_date" Type="DateTime" Precision="3" />
+          <Property Name="coin_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_account" Type="Int32" />
+          <NavigationProperty Name="tbl_Account" Relationship="Self.FK_tbl_Coin_tbl_Account" FromRole="tbl_Coin" ToRole="tbl_Account" />
+        </EntityType>
+        <EntityType Name="tbl_Color">
+          <Key>
+            <PropertyRef Name="id_color" />
+          </Key>
+          <Property Name="id_color" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="color_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="color_status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Color" FromRole="tbl_Color" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="tbl_CPU">
+          <Key>
+            <PropertyRef Name="id_cpu" />
+          </Key>
+          <Property Name="id_cpu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cpu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cpu_manuf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cpu_namemanuf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_CPU" FromRole="tbl_CPU" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="tbl_DateOfHire">
+          <Key>
+            <PropertyRef Name="id_dateofhire" />
+          </Key>
+          <Property Name="id_dateofhire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doh_startday" Type="DateTime" Precision="3" />
+          <Property Name="doh_expirationdate" Type="DateTime" Precision="3" />
+          <Property Name="doh_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Shop" Relationship="Self.FK_tbl_Shop_tbl_DateOfHire" FromRole="tbl_DateOfHire" ToRole="tbl_Shop" />
+        </EntityType>
+        <EntityType Name="tbl_Device">
+          <Key>
+            <PropertyRef Name="id_device" />
+          </Key>
+          <Property Name="id_device" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="device_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Device" FromRole="tbl_Device" ToRole="tbl_Product" />
+          <NavigationProperty Name="tbl_ProductMore" Relationship="Self.FK_tbl_ProductMore_tbl_Device" FromRole="tbl_Device" ToRole="tbl_ProductMore" />
+        </EntityType>
+        <EntityType Name="tbl_Images">
+          <Key>
+            <PropertyRef Name="id_images" />
+          </Key>
+          <Property Name="id_images" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="images_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_product" Type="Int32" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Images_tbl_Product" FromRole="tbl_Images" ToRole="tbl_Product" />
+          <NavigationProperty Name="tbl_ProductMore" Relationship="Self.FK_tbl_Images_tbl_ProductMore" FromRole="tbl_Images" ToRole="tbl_ProductMore" />
+        </EntityType>
+        <EntityType Name="tbl_Manufacturer">
+          <Key>
+            <PropertyRef Name="id_manufacturer" />
+          </Key>
+          <Property Name="id_manufacturer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manufacturer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="manufacturer_status" Type="Int32" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Manufacturer" FromRole="tbl_Manufacturer" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="tbl_Messages">
+          <Key>
+            <PropertyRef Name="id_messages" />
+          </Key>
+          <Property Name="id_messages" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_channel" Type="Int32" />
+          <Property Name="messages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="messages_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Channel" Relationship="Self.FK_tbl_Messages_tbl_Channel" FromRole="tbl_Messages" ToRole="tbl_Channel" />
+        </EntityType>
+        <EntityType Name="tbl_Product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_manufacturer" Type="Int32" />
+          <Property Name="id_color" Type="Int32" />
+          <Property Name="product_capacity" Type="Double" />
+          <Property Name="product_status" Type="Int32" />
+          <Property Name="product_price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="product_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="product_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_cpu" Type="Int32" />
+          <Property Name="product_gpu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="product_ram" Type="Int32" />
+          <Property Name="id_screensize" Type="Int32" />
+          <Property Name="product_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_disk" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="graphics_screen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_insurance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_device" Type="Int32" />
+          <Property Name="id_account" Type="Int32" />
+          <Property Name="id_shop" Type="Int32" />
+          <NavigationProperty Name="tbl_Account" Relationship="Self.FK_tbl_Product_tbl_Account" FromRole="tbl_Product" ToRole="tbl_Account" />
+          <NavigationProperty Name="tbl_Color" Relationship="Self.FK_tbl_Product_tbl_Color" FromRole="tbl_Product" ToRole="tbl_Color" />
+          <NavigationProperty Name="tbl_CPU" Relationship="Self.FK_tbl_Product_tbl_CPU" FromRole="tbl_Product" ToRole="tbl_CPU" />
+          <NavigationProperty Name="tbl_Device" Relationship="Self.FK_tbl_Product_tbl_Device" FromRole="tbl_Product" ToRole="tbl_Device" />
+          <NavigationProperty Name="tbl_Images" Relationship="Self.FK_tbl_Images_tbl_Product" FromRole="tbl_Product" ToRole="tbl_Images" />
+          <NavigationProperty Name="tbl_Manufacturer" Relationship="Self.FK_tbl_Product_tbl_Manufacturer" FromRole="tbl_Product" ToRole="tbl_Manufacturer" />
+          <NavigationProperty Name="tbl_Screensize" Relationship="Self.FK_tbl_Product_tbl_Screensize" FromRole="tbl_Product" ToRole="tbl_Screensize" />
+          <NavigationProperty Name="tbl_Shop" Relationship="Self.FK_tbl_Product_tbl_Shop" FromRole="tbl_Product" ToRole="tbl_Shop" />
+        </EntityType>
+        <EntityType Name="tbl_ProductMore">
+          <Key>
+            <PropertyRef Name="id_productmore" />
+          </Key>
+          <Property Name="id_productmore" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_device" Type="Int32" />
+          <Property Name="productmore_status" Type="Int32" />
+          <Property Name="productmore_insurance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="productmore_price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="productmore_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="productmore_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_account" Type="Int32" />
+          <Property Name="id_shop" Type="Int32" />
+          <NavigationProperty Name="tbl_Account" Relationship="Self.FK_tbl_ProductMore_tbl_Account" FromRole="tbl_ProductMore" ToRole="tbl_Account" />
+          <NavigationProperty Name="tbl_Device" Relationship="Self.FK_tbl_ProductMore_tbl_Device" FromRole="tbl_ProductMore" ToRole="tbl_Device" />
+          <NavigationProperty Name="tbl_Images" Relationship="Self.FK_tbl_Images_tbl_ProductMore" FromRole="tbl_ProductMore" ToRole="tbl_Images" />
+          <NavigationProperty Name="tbl_Shop" Relationship="Self.FK_tbl_ProductMore_tbl_Shop" FromRole="tbl_ProductMore" ToRole="tbl_Shop" />
+        </EntityType>
+        <EntityType Name="tbl_Screensize">
+          <Key>
+            <PropertyRef Name="id_screensize" />
+          </Key>
+          <Property Name="id_screensize" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="screensize_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="screensize_manuf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="screensize_namemanuf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Screensize" FromRole="tbl_Screensize" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="tbl_Shop">
+          <Key>
+            <PropertyRef Name="id_shop" />
+          </Key>
+          <Property Name="id_shop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shop_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="shop_introduce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="shop_phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="shop_avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="shop_background" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_account" Type="Int32" />
+          <Property Name="id_dateofhire" Type="Int32" />
+          <NavigationProperty Name="tbl_Account" Relationship="Self.FK_tbl_Shop_tbl_Account" FromRole="tbl_Shop" ToRole="tbl_Account" />
+          <NavigationProperty Name="tbl_DateOfHire" Relationship="Self.FK_tbl_Shop_tbl_DateOfHire" FromRole="tbl_Shop" ToRole="tbl_DateOfHire" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Shop" FromRole="tbl_Shop" ToRole="tbl_Product" />
+          <NavigationProperty Name="tbl_ProductMore" Relationship="Self.FK_tbl_ProductMore_tbl_Shop" FromRole="tbl_Shop" ToRole="tbl_ProductMore" />
+        </EntityType>
+        <Association Name="FK_tbl_Channel_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Channel" Type="Self.tbl_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Channel">
+              <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Channel_tbl_Account1">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Channel" Type="Self.tbl_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Channel">
+              <PropertyRef Name="receiver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Coin_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Coin" Type="Self.tbl_Coin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Coin">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProductMore_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_ProductMore">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Shop_tbl_Account">
+          <End Role="tbl_Account" Type="Self.tbl_Account" Multiplicity="0..1" />
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="tbl_Shop">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Messages_tbl_Channel">
+          <End Role="tbl_Channel" Type="Self.tbl_Channel" Multiplicity="0..1" />
+          <End Role="tbl_Messages" Type="Self.tbl_Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Channel">
+              <PropertyRef Name="id_channel" />
+            </Principal>
+            <Dependent Role="tbl_Messages">
+              <PropertyRef Name="id_channel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Color">
+          <End Role="tbl_Color" Type="Self.tbl_Color" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Color">
+              <PropertyRef Name="id_color" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_CPU">
+          <End Role="tbl_CPU" Type="Self.tbl_CPU" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CPU">
+              <PropertyRef Name="id_cpu" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_cpu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Shop_tbl_DateOfHire">
+          <End Role="tbl_DateOfHire" Type="Self.tbl_DateOfHire" Multiplicity="0..1" />
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_DateOfHire">
+              <PropertyRef Name="id_dateofhire" />
+            </Principal>
+            <Dependent Role="tbl_Shop">
+              <PropertyRef Name="id_dateofhire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Device">
+          <End Role="tbl_Device" Type="Self.tbl_Device" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Device">
+              <PropertyRef Name="id_device" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_device" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProductMore_tbl_Device">
+          <End Role="tbl_Device" Type="Self.tbl_Device" Multiplicity="0..1" />
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Device">
+              <PropertyRef Name="id_device" />
+            </Principal>
+            <Dependent Role="tbl_ProductMore">
+              <PropertyRef Name="id_device" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Images_tbl_Product">
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="0..1" />
+          <End Role="tbl_Images" Type="Self.tbl_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="tbl_Images">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Images_tbl_ProductMore">
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="0..1" />
+          <End Role="tbl_Images" Type="Self.tbl_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProductMore">
+              <PropertyRef Name="id_productmore" />
+            </Principal>
+            <Dependent Role="tbl_Images">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Manufacturer">
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Manufacturer">
+              <PropertyRef Name="id_manufacturer" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_manufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Screensize">
+          <End Role="tbl_Screensize" Type="Self.tbl_Screensize" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Screensize">
+              <PropertyRef Name="id_screensize" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_screensize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Shop">
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Shop">
+              <PropertyRef Name="id_shop" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="id_shop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProductMore_tbl_Shop">
+          <End Role="tbl_Shop" Type="Self.tbl_Shop" Multiplicity="0..1" />
+          <End Role="tbl_ProductMore" Type="Self.tbl_ProductMore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Shop">
+              <PropertyRef Name="id_shop" />
+            </Principal>
+            <Dependent Role="tbl_ProductMore">
+              <PropertyRef Name="id_shop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SGDFleaMarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_Account" EntityType="Self.tbl_Account" />
+          <EntitySet Name="tbl_Channel" EntityType="Self.tbl_Channel" />
+          <EntitySet Name="tbl_Coin" EntityType="Self.tbl_Coin" />
+          <EntitySet Name="tbl_Color" EntityType="Self.tbl_Color" />
+          <EntitySet Name="tbl_CPU" EntityType="Self.tbl_CPU" />
+          <EntitySet Name="tbl_DateOfHire" EntityType="Self.tbl_DateOfHire" />
+          <EntitySet Name="tbl_Device" EntityType="Self.tbl_Device" />
+          <EntitySet Name="tbl_Images" EntityType="Self.tbl_Images" />
+          <EntitySet Name="tbl_Manufacturer" EntityType="Self.tbl_Manufacturer" />
+          <EntitySet Name="tbl_Messages" EntityType="Self.tbl_Messages" />
+          <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" />
+          <EntitySet Name="tbl_ProductMore" EntityType="Self.tbl_ProductMore" />
+          <EntitySet Name="tbl_Screensize" EntityType="Self.tbl_Screensize" />
+          <EntitySet Name="tbl_Shop" EntityType="Self.tbl_Shop" />
+          <AssociationSet Name="FK_tbl_Channel_tbl_Account" Association="Self.FK_tbl_Channel_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Channel" EntitySet="tbl_Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Channel_tbl_Account1" Association="Self.FK_tbl_Channel_tbl_Account1">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Channel" EntitySet="tbl_Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Coin_tbl_Account" Association="Self.FK_tbl_Coin_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Coin" EntitySet="tbl_Coin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Account" Association="Self.FK_tbl_Product_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProductMore_tbl_Account" Association="Self.FK_tbl_ProductMore_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Shop_tbl_Account" Association="Self.FK_tbl_Shop_tbl_Account">
+            <End Role="tbl_Account" EntitySet="tbl_Account" />
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Messages_tbl_Channel" Association="Self.FK_tbl_Messages_tbl_Channel">
+            <End Role="tbl_Channel" EntitySet="tbl_Channel" />
+            <End Role="tbl_Messages" EntitySet="tbl_Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Color" Association="Self.FK_tbl_Product_tbl_Color">
+            <End Role="tbl_Color" EntitySet="tbl_Color" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_CPU" Association="Self.FK_tbl_Product_tbl_CPU">
+            <End Role="tbl_CPU" EntitySet="tbl_CPU" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Shop_tbl_DateOfHire" Association="Self.FK_tbl_Shop_tbl_DateOfHire">
+            <End Role="tbl_DateOfHire" EntitySet="tbl_DateOfHire" />
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Device" Association="Self.FK_tbl_Product_tbl_Device">
+            <End Role="tbl_Device" EntitySet="tbl_Device" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProductMore_tbl_Device" Association="Self.FK_tbl_ProductMore_tbl_Device">
+            <End Role="tbl_Device" EntitySet="tbl_Device" />
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Images_tbl_Product" Association="Self.FK_tbl_Images_tbl_Product">
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+            <End Role="tbl_Images" EntitySet="tbl_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Images_tbl_ProductMore" Association="Self.FK_tbl_Images_tbl_ProductMore">
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+            <End Role="tbl_Images" EntitySet="tbl_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Manufacturer" Association="Self.FK_tbl_Product_tbl_Manufacturer">
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Screensize" Association="Self.FK_tbl_Product_tbl_Screensize">
+            <End Role="tbl_Screensize" EntitySet="tbl_Screensize" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Shop" Association="Self.FK_tbl_Product_tbl_Shop">
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProductMore_tbl_Shop" Association="Self.FK_tbl_ProductMore_tbl_Shop">
+            <End Role="tbl_Shop" EntitySet="tbl_Shop" />
+            <End Role="tbl_ProductMore" EntitySet="tbl_ProductMore" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SGDFleaMarketModelStoreContainer" CdmEntityContainer="SGDFleaMarketEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Account">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Account">
+              <MappingFragment StoreEntitySet="tbl_Account">
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="password_v2" ColumnName="password_v2" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="cmnd" ColumnName="cmnd" />
+                <ScalarProperty Name="brithday" ColumnName="brithday" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="images" ColumnName="images" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Channel">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Channel">
+              <MappingFragment StoreEntitySet="tbl_Channel">
+                <ScalarProperty Name="id_channel" ColumnName="id_channel" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="receiver" ColumnName="receiver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Coin">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Coin">
+              <MappingFragment StoreEntitySet="tbl_Coin">
+                <ScalarProperty Name="id_coin" ColumnName="id_coin" />
+                <ScalarProperty Name="coin_total" ColumnName="coin_total" />
+                <ScalarProperty Name="coin_date" ColumnName="coin_date" />
+                <ScalarProperty Name="coin_details" ColumnName="coin_details" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Color">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Color">
+              <MappingFragment StoreEntitySet="tbl_Color">
+                <ScalarProperty Name="id_color" ColumnName="id_color" />
+                <ScalarProperty Name="color_name" ColumnName="color_name" />
+                <ScalarProperty Name="color_status" ColumnName="color_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CPU">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_CPU">
+              <MappingFragment StoreEntitySet="tbl_CPU">
+                <ScalarProperty Name="id_cpu" ColumnName="id_cpu" />
+                <ScalarProperty Name="cpu_name" ColumnName="cpu_name" />
+                <ScalarProperty Name="cpu_manuf" ColumnName="cpu_manuf" />
+                <ScalarProperty Name="cpu_namemanuf" ColumnName="cpu_namemanuf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DateOfHire">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_DateOfHire">
+              <MappingFragment StoreEntitySet="tbl_DateOfHire">
+                <ScalarProperty Name="id_dateofhire" ColumnName="id_dateofhire" />
+                <ScalarProperty Name="doh_startday" ColumnName="doh_startday" />
+                <ScalarProperty Name="doh_expirationdate" ColumnName="doh_expirationdate" />
+                <ScalarProperty Name="doh_note" ColumnName="doh_note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Device">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Device">
+              <MappingFragment StoreEntitySet="tbl_Device">
+                <ScalarProperty Name="id_device" ColumnName="id_device" />
+                <ScalarProperty Name="device_name" ColumnName="device_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Images">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Images">
+              <MappingFragment StoreEntitySet="tbl_Images">
+                <ScalarProperty Name="id_images" ColumnName="id_images" />
+                <ScalarProperty Name="images_name" ColumnName="images_name" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Manufacturer">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Manufacturer">
+              <MappingFragment StoreEntitySet="tbl_Manufacturer">
+                <ScalarProperty Name="id_manufacturer" ColumnName="id_manufacturer" />
+                <ScalarProperty Name="manufacturer_name" ColumnName="manufacturer_name" />
+                <ScalarProperty Name="manufacturer_status" ColumnName="manufacturer_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Messages">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Messages">
+              <MappingFragment StoreEntitySet="tbl_Messages">
+                <ScalarProperty Name="id_messages" ColumnName="id_messages" />
+                <ScalarProperty Name="id_channel" ColumnName="id_channel" />
+                <ScalarProperty Name="messages" ColumnName="messages" />
+                <ScalarProperty Name="messages_time" ColumnName="messages_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Product">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Product">
+              <MappingFragment StoreEntitySet="tbl_Product">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="id_manufacturer" ColumnName="id_manufacturer" />
+                <ScalarProperty Name="id_color" ColumnName="id_color" />
+                <ScalarProperty Name="product_capacity" ColumnName="product_capacity" />
+                <ScalarProperty Name="product_status" ColumnName="product_status" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_title" ColumnName="product_title" />
+                <ScalarProperty Name="product_details" ColumnName="product_details" />
+                <ScalarProperty Name="id_cpu" ColumnName="id_cpu" />
+                <ScalarProperty Name="product_gpu" ColumnName="product_gpu" />
+                <ScalarProperty Name="product_ram" ColumnName="product_ram" />
+                <ScalarProperty Name="id_screensize" ColumnName="id_screensize" />
+                <ScalarProperty Name="product_version" ColumnName="product_version" />
+                <ScalarProperty Name="product_disk" ColumnName="product_disk" />
+                <ScalarProperty Name="graphics_screen" ColumnName="graphics_screen" />
+                <ScalarProperty Name="product_insurance" ColumnName="product_insurance" />
+                <ScalarProperty Name="id_device" ColumnName="id_device" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_shop" ColumnName="id_shop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ProductMore">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_ProductMore">
+              <MappingFragment StoreEntitySet="tbl_ProductMore">
+                <ScalarProperty Name="id_productmore" ColumnName="id_productmore" />
+                <ScalarProperty Name="id_device" ColumnName="id_device" />
+                <ScalarProperty Name="productmore_status" ColumnName="productmore_status" />
+                <ScalarProperty Name="productmore_insurance" ColumnName="productmore_insurance" />
+                <ScalarProperty Name="productmore_price" ColumnName="productmore_price" />
+                <ScalarProperty Name="productmore_title" ColumnName="productmore_title" />
+                <ScalarProperty Name="productmore_details" ColumnName="productmore_details" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_shop" ColumnName="id_shop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Screensize">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Screensize">
+              <MappingFragment StoreEntitySet="tbl_Screensize">
+                <ScalarProperty Name="id_screensize" ColumnName="id_screensize" />
+                <ScalarProperty Name="screensize_name" ColumnName="screensize_name" />
+                <ScalarProperty Name="screensize_manuf" ColumnName="screensize_manuf" />
+                <ScalarProperty Name="screensize_namemanuf" ColumnName="screensize_namemanuf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Shop">
+            <EntityTypeMapping TypeName="SGDFleaMarketModel.tbl_Shop">
+              <MappingFragment StoreEntitySet="tbl_Shop">
+                <ScalarProperty Name="id_shop" ColumnName="id_shop" />
+                <ScalarProperty Name="shop_name" ColumnName="shop_name" />
+                <ScalarProperty Name="shop_address" ColumnName="shop_address" />
+                <ScalarProperty Name="shop_introduce" ColumnName="shop_introduce" />
+                <ScalarProperty Name="shop_phone" ColumnName="shop_phone" />
+                <ScalarProperty Name="shop_avatar" ColumnName="shop_avatar" />
+                <ScalarProperty Name="shop_background" ColumnName="shop_background" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_dateofhire" ColumnName="id_dateofhire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

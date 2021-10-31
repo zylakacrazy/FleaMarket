@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+@model List<FleaMarket.Models.tbl_Account>
+
+<form action="/Account/DangNhap" method="post">
+    <label>Tên đăng nhập</label>
+    <input type="text" name="tk"/>
+    <label>Mật khẩu</label>
+    <input type="password" name="mk"/>
+    <button type="submit">Đăng nhập</button>
+</form>
+@if (ViewBag.thongbao != null) { 
+    <p style="color:red;">@ViewBag.thongbao</p>
+}
+
