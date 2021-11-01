@@ -16,28 +16,28 @@
         <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_Images" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_Manufacturer" Width="1.5" PointX="3.75" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_Messages" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_Product" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_ProductMore" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_Screensize" Width="1.5" PointX="3.75" PointY="24.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_Shop" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Channel_tbl_Account" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Channel_tbl_Account1" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Coin_tbl_Account" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Account" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_ProductMore_tbl_Account" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Shop_tbl_Account" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Messages_tbl_Channel" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Color" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_CPU" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Shop_tbl_DateOfHire" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Device" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_ProductMore_tbl_Device" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Images_tbl_Product" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Images_tbl_ProductMore" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Manufacturer" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Screensize" ManuallyRouted="false" />
-        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Shop" ManuallyRouted="false" />
         <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_ProductMore_tbl_Shop" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SGDFleaMarketModel.tbl_Product" Width="1.5" PointX="6" PointY="12.5" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Account" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Color" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_CPU" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Device" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Images_tbl_Product" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Manufacturer" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Screensize" />
+        <AssociationConnector Association="SGDFleaMarketModel.FK_tbl_Product_tbl_Shop" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

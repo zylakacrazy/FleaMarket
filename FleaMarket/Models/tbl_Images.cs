@@ -18,7 +18,7 @@ namespace FleaMarket.Models
         public string images_name { get; set; }
         public Nullable<int> id_product { get; set; }
     
-        public virtual tbl_Product tbl_Product { get; set; }
         public virtual tbl_ProductMore tbl_ProductMore { get; set; }
+        public virtual tbl_Product tbl_Product { get; set; }
     }
 }

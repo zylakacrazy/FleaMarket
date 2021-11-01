@@ -20,9 +20,9 @@ namespace FleaMarket.Models
             this.tbl_Channel = new HashSet<tbl_Channel>();
             this.tbl_Channel1 = new HashSet<tbl_Channel>();
             this.tbl_Coin = new HashSet<tbl_Coin>();
-            this.tbl_Product = new HashSet<tbl_Product>();
             this.tbl_ProductMore = new HashSet<tbl_ProductMore>();
             this.tbl_Shop = new HashSet<tbl_Shop>();
+            this.tbl_Product = new HashSet<tbl_Product>();
         }
     
         public int id_account { get; set; }
@@ -45,10 +45,10 @@ namespace FleaMarket.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Coin> tbl_Coin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Product> tbl_Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_ProductMore> tbl_ProductMore { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Shop> tbl_Shop { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Product> tbl_Product { get; set; }
     }
 }

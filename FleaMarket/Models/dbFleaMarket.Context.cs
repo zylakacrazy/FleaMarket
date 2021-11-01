@@ -36,9 +36,9 @@ namespace FleaMarket.Models
         public virtual DbSet<tbl_Images> tbl_Images { get; set; }
         public virtual DbSet<tbl_Manufacturer> tbl_Manufacturer { get; set; }
         public virtual DbSet<tbl_Messages> tbl_Messages { get; set; }
-        public virtual DbSet<tbl_Product> tbl_Product { get; set; }
         public virtual DbSet<tbl_ProductMore> tbl_ProductMore { get; set; }
         public virtual DbSet<tbl_Screensize> tbl_Screensize { get; set; }
         public virtual DbSet<tbl_Shop> tbl_Shop { get; set; }
+        public virtual DbSet<tbl_Product> tbl_Product { get; set; }
     }
 }

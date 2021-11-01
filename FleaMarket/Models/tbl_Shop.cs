@@ -17,8 +17,8 @@ namespace FleaMarket.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_Shop()
         {
-            this.tbl_Product = new HashSet<tbl_Product>();
             this.tbl_ProductMore = new HashSet<tbl_ProductMore>();
+            this.tbl_Product = new HashSet<tbl_Product>();
         }
     
         public int id_shop { get; set; }
@@ -34,8 +34,8 @@ namespace FleaMarket.Models
         public virtual tbl_Account tbl_Account { get; set; }
         public virtual tbl_DateOfHire tbl_DateOfHire { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Product> tbl_Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_ProductMore> tbl_ProductMore { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Product> tbl_Product { get; set; }
     }
 }

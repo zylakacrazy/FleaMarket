@@ -13,11 +13,19 @@ namespace FleaMarket.Controllers
         SGDFleaMarketEntities db = new SGDFleaMarketEntities();
         public ActionResult Index()
         {
-            return View();
+            List<tbl_Product> result = db.tbl_Product.ToList();
+
+            return View(result);
         }
-        public ActionResult showProduct()
+        public ActionResult showDetails(int msp)
         {
-            List<tbl_Product>
+            var result1 = db.tbl_Product.SingleOrDefault(n => n.id_product==msp);
+            if (result1 == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(result1);
         }
     }
 }

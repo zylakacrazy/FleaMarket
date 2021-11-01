@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "showDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>showDetails</h2>
+
+<div>
+    <h2>CHI TIẾT SẢN PHẨM</h2>
+    <img src="@Url.Content("~/Images/" +@Model.product_images)" />
+    <br />
+    <h3> @Model.product_title</h3>
+    <h3 style="color:red">Giá: @Model.product_price</h3>
+    <br />
+    @Model.product_details
+</div>

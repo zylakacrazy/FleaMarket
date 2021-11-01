@@ -2,4 +2,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <a href="@Url.Action("showDetails", new {@msp=item.id_product })">
+                <img src=@Url.Content("~/Images/"+item.product_images) class="img-responsive" alt="" width="400" height="400" />
+            </a>
+            <center>
+                <h3>@item.product_title</h3>
+                <h3 style="color:red">Giá: @item.product_price</h3>  
+            </center>
 
+        </div>
+     }
+</div>

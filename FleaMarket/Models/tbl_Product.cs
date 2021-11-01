@@ -39,6 +39,7 @@ namespace FleaMarket.Models
         public Nullable<int> id_device { get; set; }
         public Nullable<int> id_account { get; set; }
         public Nullable<int> id_shop { get; set; }
+        public string product_images { get; set; }
     
         public virtual tbl_Account tbl_Account { get; set; }
         public virtual tbl_Color tbl_Color { get; set; }

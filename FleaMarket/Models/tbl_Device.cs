@@ -17,16 +17,16 @@ namespace FleaMarket.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_Device()
         {
-            this.tbl_Product = new HashSet<tbl_Product>();
             this.tbl_ProductMore = new HashSet<tbl_ProductMore>();
+            this.tbl_Product = new HashSet<tbl_Product>();
         }
     
         public int id_device { get; set; }
         public string device_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Product> tbl_Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_ProductMore> tbl_ProductMore { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Product> tbl_Product { get; set; }
     }
 }

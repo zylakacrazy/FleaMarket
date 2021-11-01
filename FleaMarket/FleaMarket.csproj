@@ -202,6 +202,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\sp1.jpg" />
     <Content Include="Models\dbFleaMarket.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbFleaMarket.edmx</DependentUpon>
@@ -248,6 +249,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\ShowProduct\Index.cshtml" />
+    <Content Include="Views\ShowProduct\showDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
